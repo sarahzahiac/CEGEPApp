@@ -1,12 +1,13 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/nativestack';
-import { createBottomTabNavigator } from '@react-navigation/bottomtabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import HomeScreen from '../screens/HomeScreen';
 import DetailsScreen from '../screens/DetailsScreen';
 import CounterScreen from '../screens/CounterScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import EggScreen from '../screens/EggScreen';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -24,19 +25,26 @@ function Tabs() {
             <Tab.Screen name="Settings" component={SettingsScreen} options={{
                 title: 'Paramètres'
             }} />
+
+            <Tab.Screen name="Egg" component={EggScreen} options={{
+                title: 'Egg'
+            }} />
+            
+
+           
         </Tab.Navigator>
     );
 }
 
-export default function AppNavigator() {
+export default function AppNavigator() { 
     return (
-        <NavigationContainer>
+       <NavigationContainer>
             <Stack.Navigator>
                 <Stack.Screen name="Tabs" component={Tabs} options={{
                     headerShown: false
                 }} />
                 <Stack.Screen name="Details" component={DetailsScreen} />
             </Stack.Navigator>
-        </NavigationContainer>
+     </NavigationContainer>
     );
 }
