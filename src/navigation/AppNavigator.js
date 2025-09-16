@@ -8,6 +8,7 @@ import DetailsScreen from '../screens/DetailsScreen';
 import CounterScreen from '../screens/CounterScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import EggScreen from '../screens/EggScreen';
+import TimerScreen from '../screens/TimerScreen';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -29,6 +30,13 @@ function Tabs() {
             <Tab.Screen name="Egg" component={EggScreen} options={{
                 title: 'Egg'
             }} />
+
+            <Tab.Screen
+              name="Timer"
+              component={TimerScreen}
+              options={{ title: "Minuteur" }}
+            />
+
             
 
            
