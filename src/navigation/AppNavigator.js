@@ -8,6 +8,7 @@ import DetailsScreen from '../screens/DetailsScreen';
 import CounterScreen from '../screens/CounterScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import TimerScreen from '../screens/TimerScreen';
+import Chronometer from '../screens/Chronometer';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -21,6 +22,9 @@ function Tabs() {
             }} />
             <Tab.Screen name="Counter" component={CounterScreen} options={{
                 title: 'Compteur'
+            }} />
+            <Tab.Screen name="Chronometer" component={Chronometer} options={{
+                title: 'Chronomètre'
             }} />
             <Tab.Screen name="Settings" component={SettingsScreen} options={{
                 title: 'Paramètres'
