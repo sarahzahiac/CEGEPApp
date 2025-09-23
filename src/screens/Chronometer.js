@@ -42,7 +42,7 @@ const Chronometer = () => {
 
   return (
     <View style={styles.container}>
-        <Text style={{position: 'absolute', top: 100, fontSize: 44, fontWeight: '600', color: 'black', backgroundColor:'#dff9fb', padding:10,borderRadius:10,}}>Chronomètre</Text>
+        <Text style={{position: 'absolute', top: 100, fontSize: 44, fontWeight: '600', color: 'black', backgroundColor:'#F1EDF8', padding:10,borderRadius:10,}}>Chronomètre</Text>
       <Text style={styles.time}>{formatTime(time)}</Text>
       <View style={styles.buttons}>
         <View style={styles.button}>
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f5f6fa',
+    backgroundColor: '#F4E7D3',
   },
   time: {
     fontSize: 64,
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     padding: 20,
     borderRadius: 16,
-    backgroundColor: '#dff9fb',
+    backgroundColor: '#F1EDF8',
     elevation: 4,
     shadowColor: '#636e72',
     shadowOffset: { width: 0, height: 2 },
@@ -115,15 +115,15 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
   },
   start: {
-    backgroundColor: '#44bd32',
+    backgroundColor: '#C1E1C1',
     borderRadius: 24,
   },
   stop: {
-    backgroundColor: '#e84118',
+    backgroundColor: '#FAA0A0',
     borderRadius: 24,
   },
   reset: {
-    backgroundColor: '#273c75',
+    backgroundColor: '#C7DBF0',
     borderRadius: 24,
   },
 });
