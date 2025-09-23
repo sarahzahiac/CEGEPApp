@@ -9,6 +9,7 @@ import CounterScreen from '../screens/CounterScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import TimerScreen from '../screens/TimerScreen';
 import Chronometer from '../screens/Chronometer';
+import AlarmScreen from '../screens/AlarmScreen';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -19,6 +20,9 @@ function Tabs() {
             <Tab.Screen name="Home" component={HomeScreen} options={{
                 title:
                     'Accueil'
+            }} />
+            <Tab.Screen name="Alarmes" component={AlarmScreen} options={{
+                title: 'Alarmes'
             }} />
             <Tab.Screen name="Counter" component={CounterScreen} options={{
                 title: 'Compteur'
