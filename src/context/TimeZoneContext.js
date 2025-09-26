@@ -21,7 +21,9 @@ const TimeZoneContext = ({continent, city}) => {
   useEffect(() => {
     setLoading(true)
      getTimeZone();
-    const interval = setInterval(getTimeZone, 2000)
+    let interval = setInterval(() => {
+      getTimeZone()
+    }, 1000)
     return() => clearInterval(interval)
    
   }, [continent, city]);
