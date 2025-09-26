@@ -23,31 +23,36 @@ const TimeZoneScreen = () => {
         <Text style={styles.title}>Fuseaux sélectionnés :</Text>
 
         {selectedZones ? (
-          <TimeZoneContext
-            continent={selectedZones.continent}
-            city={selectedZones.city}
-          ></TimeZoneContext>
+          <View style={styles.activeCard}>
+            <TimeZoneContext
+              continent={selectedZones.continent}
+              city={selectedZones.city}
+            />
+          </View>
         ) : (
-          <Text>Aucun fuseau sélectionné</Text>
+          <Text style={styles.noSelection}>Aucun fuseau sélectionné</Text>
         )}
 
         <Text style={styles.title}>Tous les fuseaux horaires :</Text>
 
-        <View style={styles.container}>
-          <FlatList
-            data={timeZones}
-            keyExtractor={({ id }) => id}
-            renderItem={({ item }) => (
-              <TouchableHighlight onPress={() => changeTimeZone(item)}>
-                <View style={styles.button}>
-                  <Text style={styles.text}>
-                    {item.city}, {item.continent}
-                  </Text>
-                </View>
-              </TouchableHighlight>
-            )}
-          />
-        </View>
+        <FlatList
+          data={timeZones}
+          keyExtractor={({ id }) => id}
+          contentContainerStyle={styles.list}
+          renderItem={({ item }) => (
+            <TouchableHighlight
+              style={styles.touchable}
+              underlayColor="#a3cde2"
+              onPress={() => changeTimeZone(item)}
+            >
+              <View style={styles.button}>
+                <Text style={styles.text}>
+                  {item.city}, {item.continent}
+                </Text>
+              </View>
+            </TouchableHighlight>
+          )}
+        />
       </SafeAreaView>
     </SafeAreaProvider>
   );
@@ -56,38 +61,61 @@ const TimeZoneScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    paddingHorizontal: 10,
-    backgroundColor: "#ffffffff",
-  },
-  button: {
-    alignItems: "center",
-    backgroundColor: "#b6d9e9ff",
-    padding: 17,
-    marginVertical: 4,
-    borderRadius: 20,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
+    padding: 16,
+    backgroundColor: "#F4E7D3",
   },
 
-  selected: {
-    fontSize: 18,
-    fontWeight: "600",
-    color: "#0984e3",
-    marginBottom: 10,
-  },
   title: {
-    fontSize: 20,
-    marginVertical: 10,
-    fontWeight: "bold",
+    fontSize: 24,
+    marginVertical: 12,
+    fontWeight: "700",
     color: "#2f3640",
+    textAlign: "center",
+  },
+
+  activeCard: {
+    backgroundColor: "#F1EDF8",
+    padding: 16,
+    borderRadius: 16,
+    marginBottom: 16,
+    elevation: 4,
+    shadowColor: "#636e72",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+  },
+
+  noSelection: {
+    textAlign: "center",
+    color: "#6B7280",
+    marginBottom: 16,
+    fontSize: 16,
+  },
+
+  list: {
+    paddingBottom: 20,
+  },
+
+  touchable: {
+    borderRadius: 20,
+    marginVertical: 6,
+  },
+
+  button: {
+    alignItems: "center",
+    backgroundColor: "#C7DBF0",
+    paddingVertical: 16,
+    borderRadius: 20,
+    elevation: 3,
+    shadowColor: "#636e72",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
+    shadowRadius: 6,
   },
 
   text: {
-    fontWeight: "bold",
+    fontSize: 16,
+    fontWeight: "600",
     color: "#2f3640",
   },
 });

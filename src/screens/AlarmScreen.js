@@ -25,7 +25,7 @@ export default function ScreenAlarm() {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.header}>Alarm App</Text>
+      <Text style={styles.title}>Alarm App</Text>
 
       {currentAlarmText ? (
         <View style={styles.activeCard}>
@@ -62,15 +62,12 @@ export default function ScreenAlarm() {
         />
       </View>
 
-      <Pressable style={styles.btnPrimary} onPress={scheduleAlarm}>
-        <Text style={styles.btnText}>Activer l'alarme</Text>
+      <Pressable style={[styles.button, styles.start]} onPress={scheduleAlarm}>
+        <Text style={styles.buttonText}>Activer l'alarme</Text>
       </Pressable>
 
-      <Pressable
-        style={[styles.btnPrimary, { backgroundColor: "#b43ce7ff" }]}
-        onPress={turnOffAlarm}
-      >
-        <Text style={styles.btnText}>Éteindre l'alarme</Text>
+      <Pressable style={[styles.button, styles.stop]} onPress={turnOffAlarm}>
+        <Text style={styles.buttonText}>Éteindre l'alarme</Text>
       </Pressable>
 
       <StatusBar style="auto" />
@@ -79,70 +76,112 @@ export default function ScreenAlarm() {
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flexGrow: 1,
     justifyContent: "center",
+    alignItems: "center",
     padding: 20,
-    backgroundColor: "#fff",
+    backgroundColor: "#F4E7D3",
   },
 
-  header: {
-    fontSize: 24,
-    marginBottom: 10,
+  title: {
+    fontSize: 28,
+    fontWeight: "700",
+    marginBottom: 20,
+    color: "#2f3640",
     textAlign: "center",
-    fontWeight: "bold",
   },
 
   activeCard: {
-    backgroundColor: "#F3F4F6",
-    padding: 14,
-    borderRadius: 12,
-    marginBottom: 10,
+    backgroundColor: "#F1EDF8",
+    padding: 16,
+    borderRadius: 16,
+    marginBottom: 16,
+    elevation: 4,
+    shadowColor: "#636e72",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    width: "100%",
   },
 
   activeTitle: {
-    color: "#6B7280", 
-    fontSize: 12, 
-    marginBottom: 4 
-},
+    color: "#6B7280",
+    fontSize: 14,
+    marginBottom: 6,
+    textAlign: "center",
+  },
 
   activeTime: {
-    fontSize: 28, 
-    fontWeight: "700", 
-},
+    fontSize: 32,
+    fontWeight: "bold",
+    color: "#2f3640",
+    textAlign: "center",
+  },
 
   noAlarm: {
-    textAlign: "center", 
-    color: "#6B7280", 
-    marginBottom: 10 
-},
+    textAlign: "center",
+    color: "#6B7280",
+    marginBottom: 16,
+    fontSize: 16,
+  },
 
   row: {
     flexDirection: "row",
     gap: 10,
     marginVertical: 10,
-},
+    width: "100%",
+  },
+
   input: {
     flex: 1,
     borderWidth: 1,
-    borderColor: "#E5E7EB",
-    backgroundColor: "#F9FAFB",
+    borderColor: "#ccc",
+    backgroundColor: "#fff",
     paddingHorizontal: 12,
     paddingVertical: 10,
     borderRadius: 10,
-},
+    textAlign: "center",
+    fontSize: 16,
+    elevation: 2,
+    shadowColor: "#636e72",
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+  },
 
-  btnPrimary: {
-    backgroundColor: "#60748aff",
-    borderRadius: 10,
-    paddingVertical: 14,
-    alignItems: "center",
+  button: {
     marginTop: 10,
-},
+    borderRadius: 24,
+    overflow: "hidden",
+    paddingVertical: 14,
+    paddingHorizontal: 18,
+    alignItems: "center",
+    width: "100%",
+    elevation: 3,
+    shadowColor: "#636e72",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
+    shadowRadius: 6,
+  },
 
-  btnText: {
-    color: "#fff",
-    fontWeight: "700" 
-},
+  buttonText: {
+    fontSize: 18,
+    fontWeight: "600",
+    textAlign: "center",
+    color: "#2f3640",
+    letterSpacing: 1,
+  },
+
+  start: {
+    backgroundColor: "#C1E1C1",
+  },
+
+  stop: {
+    backgroundColor: "#FAA0A0",
+  },
+
+  reset: {
+    backgroundColor: "#C7DBF0",
+  },
 });
